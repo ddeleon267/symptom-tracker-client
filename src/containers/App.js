@@ -17,7 +17,7 @@ import Entries from './Entries'
 // ]
 // was using this to stub the data
 
-// const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     // console.log(`${API_URL}/entries`)
-    fetch(`http://localhost:3001/api/entries`)
+    fetch(`${API_URL}/entries`)
     .then(response => response.json())
     .then(entries => this.setState({ entries }))
   }
