@@ -1,14 +1,10 @@
 import React from 'react';
+import EntryCard from '../components/EntryCard';
 
 const Entries = (props) => (
-  <div>
+  <div className="EntriesContainer">
     <h3>Entries</h3>
-    {props.entries.map(entry =>
-      <div key={entry.id} className="EntryCard">
-        <h3>Cycle: {entry.cycle_number}, Day: {entry.cycle_day}</h3>
-        <p>Notes: {entry.notes}</p>
-      </div>
-    )}
+    { props.entries.map(entry => <EntryCard key={entry.id} entry={entry}/>)  }
   </div>
 )
 
