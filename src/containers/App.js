@@ -2,6 +2,36 @@ import React, { Component } from 'react';
 import './App.css'
 import Entries from './Entries'
 
+const API_URL = process.env.REACT_APP_API_URL;
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      entries: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(`${API_URL}/entries`)
+    .then(response => response.json())
+    .then(entries => this.setState({ entries }))
+  }
+
+  render() {
+    // console.log(this.state)
+    debugger;
+    return (
+      <div className="App">
+        App Container
+        <Entries entries={this.state.entries}/>
+      </div>
+    )
+  }
+}
+
+export default App;
 
 // const entries = [
 //   {
@@ -16,34 +46,3 @@ import Entries from './Entries'
 //   }
 // ]
 // was using this to stub the data
-
-const API_URL = process.env.REACT_APP_API_URL;
-
-class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      entries: []
-    }
-  }
-
-  componentDidMount() {
-    // console.log(`${API_URL}/entries`)
-    fetch(`${API_URL}/entries`)
-    .then(response => response.json())
-    .then(entries => this.setState({ entries }))
-  }
-
-  render() {
-    console.log(this.state)
-    return (
-      <div className="App">
-        App Container
-        <Entries entries={this.state.entries}/>
-      </div>
-    )
-  }
-}
-
-export default App;
