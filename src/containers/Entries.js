@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import EntryCard from '../components/EntryCard';
 import EntryForm from './EntryForm';
+import { getEntries } from '../actions/entries'
+
 
 class Entries extends Component {
   // constructor(props) {
@@ -8,6 +12,15 @@ class Entries extends Component {
   //
   //   this.state = {}
   // }
+
+  componentDidMount() {
+    this.props.getEntries()
+    // this.props.dispatch({
+    //   type: 'GET_ENTRIES_SUCCESS',
+    //   entries: [{ cycle_number: 5, cycle_day: 5, notes: "Testing."
+    //     }]
+    // })
+  }
 
   render() {
     return (
@@ -20,4 +33,10 @@ class Entries extends Component {
   }
 }
 
-export default Entries;
+const mapStateToProps = (state) => {
+  return ({
+    entries: state.entries
+  })
+}
+
+export default connect(mapStateToProps, { getEntries })(Entries);

@@ -5,27 +5,19 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk'; // make asynchronous calls to backend
 
-const entriesReducer = (state = [], action) => {
-  switch(action.type) {
-    case 'GET_ENTRIES_SUCCESS':
-      return action.entries;
+import entries from './reducers/entries'
 
-    default:
-      return state;
-  }
-}
-
-// let entries = entriesReducer(undefined, {type: '@@INIT'});
+// let entries = entries(undefined, {type: '@@INIT'});
 // console.log(entry)
 
 //reducer is a function that runs that returns the state of what you want
  const reducers = combineReducers({
-   entries: entriesReducer
+   entries: entries
  });
  const middleware = [thunk];
 
  export default createStore(
    reducers,
-   applyMiddleware(...middleware),
-   window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUXDEVTOOLS_EXTENSION_()
+   window._REDUX_DEVTOOLS_EXTENSION_ && window._REDUXDEVTOOLS_EXTENSION_(),
+   applyMiddleware(...middleware)
  );
