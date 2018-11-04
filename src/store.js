@@ -6,13 +6,15 @@ import {
 import thunk from 'redux-thunk'; // make asynchronous calls to backend
 
 import entries from './reducers/entries'
+import entryFormData from './reducers/entryFormData'
 
 // let entries = entries(undefined, {type: '@@INIT'});
 // console.log(entry)
 
 //reducer is a function that runs that returns the state of what you want
  const reducers = combineReducers({
-   entries: entries
+   entries,
+   entryFormData
  });
  const middleware = [thunk];
 
