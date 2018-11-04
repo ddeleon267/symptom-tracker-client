@@ -5,6 +5,8 @@ export default (state = [], action) => {
       console.log(action)
       return action.entries;
 
+    case 'CREATE_ENTRY_SUCCESS':
+      return state.concat(action.entry)
     default:
       return state;
   }

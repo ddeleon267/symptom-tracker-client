@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateEntryFormData } from '../actions/entryFormData';
+import { createEntry } from '../actions/entries'
 
 class EntryForm extends Component {
 
@@ -10,15 +11,19 @@ class EntryForm extends Component {
     const currentEntryFormData = Object.assign({}, this.props.entryFormData, {
       [name]: value
     })
-    console.log(name)
     this.props.updateEntryFormData(currentEntryFormData)
+  }
+
+  handleOnSubmit = event => {
+    event.preventDefault();
+    this.props.createEntry(this.props.entryFormData)
   }
 
   render() {
     const { cycle_number, cycle_day, notes } = this.props.entryFormData;
     return (
       <div>Add an Entry
-        <form>
+        <form onSubmit={this.handleOnSubmit}>
           <div>
             <label htmlFor="cycle_day">Cycle Day</label>
             <input
@@ -46,6 +51,8 @@ class EntryForm extends Component {
               value={notes}
             />
           </div>
+
+          <button type="submit">Add Entry</button>
         </form>
       </div>
     )
@@ -58,4 +65,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, updateEntryFormData)(EntryForm);
+export default connect(mapStateToProps, {
+  updateEntryFormData,
+  createEntry
+})(EntryForm);
