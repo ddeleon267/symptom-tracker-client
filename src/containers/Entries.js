@@ -7,19 +7,9 @@ import { getEntries } from '../actions/entries'
 
 
 class Entries extends Component {
-  // constructor(props) {
-  //   super(props)
-  //
-  //   this.state = {}
-  // }
 
   componentDidMount() {
     this.props.getEntries()
-    // this.props.dispatch({
-    //   type: 'GET_ENTRIES_SUCCESS',
-    //   entries: [{ cycle_number: 5, cycle_day: 5, notes: "Testing."
-    //     }]
-    // })
   }
 
   render() {

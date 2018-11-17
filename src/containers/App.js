@@ -1,3 +1,5 @@
+//coult move this to components folder but would need to adjust imports
+
 import React, { Component } from 'react';
 import './App.css'
 import Entries from './Entries'
