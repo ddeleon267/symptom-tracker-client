@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; // key for connecting component to redux
+// react-redux is a Redux binding for React. It’s a small library for connecting Redux and React in
+// an efficient way. What does react-redux’s connect do? Unsurprisingly it connects a React
+// component with the Redux store.
 
 import EntryCard from '../components/EntryCard';
 import EntryForm from './EntryForm';
@@ -15,9 +18,9 @@ class Entries extends Component {
   render() {
     return (
       <div className="EntriesContainer">
+        <EntryForm />
         <h3>Entries</h3>
         { this.props.entries.map(entry => <EntryCard key={entry.id} entry={entry}/>)  }
-        <EntryForm />
       </div>
     )
   }
@@ -29,4 +32,5 @@ const mapStateToProps = (state) => {
   })
 }
 
+//what's happening here?
 export default connect(mapStateToProps, { getEntries })(Entries);

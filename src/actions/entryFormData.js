@@ -1,6 +1,6 @@
 // ** Action Creators **
 
-export const updateEntryFormData = entryFormData => {
+export const updateEntryFormData = entryFormData => { //action creator
   return {
     type: 'UPDATED_DATA',
     entryFormData

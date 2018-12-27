@@ -1,12 +1,13 @@
 //coult move this to components folder but would need to adjust imports
 
-import React, { Component } from 'react';
+import React, { Component } from 'react'; // destructure, grab component
 import './App.css'
 import Entries from './Entries'
 // import { getEntries } from '../actions/entries'
 
-// const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = process.env.REACT_APP_API_URL; //react app env key
 
+// Class components should always call the base constructor with props.
 class App extends Component {
   // constructor(props) {
   //   super(props)
@@ -36,17 +37,3 @@ class App extends Component {
 }
 
 export default App;
-
-// const entries = [
-  // {
-  //   cycle_number: 1,
-  //   cycle_day: 10,
-  //   notes: "Felt less fatigued today."
-  // },
-  // {
-  //   cycle_number: 2,
-  //   cycle_day: 3,
-  //   notes: "Felt more positive and upbeat today."
-  // }
-// ]
-// was using this to stub the data

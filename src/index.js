@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
+// react-redux is a Redux binding for React. It’s a small library for connecting Redux
+// and React in an efficient way.
+// To start off connecting Redux with React we’re going to use Provider.
+// Provider is an high order component coming from react-redux.
+// P is a wrapper of a react component
+// Using layman’s terms, Provider wraps up your React application and makes it aware of
+// the entire Redux’s store.
+// Why so? We saw that in Redux the store manages everything. React must talk to the store
+// for accessing the state and dispatching actions.
+// Provider wraps up your entire React application. Moreover it gets the store as a prop.
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
