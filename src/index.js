@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // react-redux is a Redux binding for React. It’s a small library for connecting Redux
 // and React in an efficient way.
 // To start off connecting Redux with React we’re going to use Provider.
@@ -14,15 +15,20 @@ import { Provider } from 'react-redux';
 
 // Provider ensures that our entire React application can potentially access data from the store.
 // Then connect(), allows us to specify which data we are listening to (through mapStateToProps),
-// and which component we are providing the data. 
+// and which component we are providing the data.
 import './index.css';
 import App from './containers/App';
+import EntryCard from './components/EntryCard';
 import * as serviceWorker from './serviceWorker';
 import store from './store.js'
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <React.Fragment>
+        <Route path="/" component={App} />
+      </React.Fragment>
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
@@ -48,3 +54,5 @@ serviceWorker.unregister();
 //
 //    }
 // }
+
+// <Route exact path="/api/entries" component={EntryCard} />
