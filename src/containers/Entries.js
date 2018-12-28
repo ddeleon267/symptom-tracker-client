@@ -33,4 +33,5 @@ const mapStateToProps = (state) => {
 }
 
 //what's happening here?
+// dispatch is automatically provided by connect if it is missing a second argument. T
 export default connect(mapStateToProps, { getEntries })(Entries);

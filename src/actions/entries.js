@@ -17,6 +17,25 @@ const setEntries = entries => { // this is an action creator
   }
 }
 
+// ***** trying things!
+const setEntry = entry => {
+  return {
+    type: 'GET_ENTRY_SUCCESS',
+    entry
+  }
+}
+//
+
+// ***** trying things!
+const removeEntry = entry => {
+  return {
+    type: 'DELETE_ENTRY_SUCCESS'
+    // ,
+    // entry
+  }
+}
+//
+
 const addEntry = entry => { // this is an action creator
   return {
     type: 'CREATE_ENTRY_SUCCESS',
@@ -37,6 +56,28 @@ export const getEntries = () => { // this is an action creator
     .catch(error => console.log(error));
   }
 }
+
+// ***** trying things!
+export const getEntry = (entry) => {
+  return dispatch => {
+    return fetch(`${API_URL}/entries/${entry.id}`)
+    .then(response => response.json())
+    .then(entry => dispatch(setEntry(entry)))
+    .catch(error => console.log(error));
+  }
+}
+//
+
+// ***** trying things!
+export const deleteEntry = (entry) => {
+  return dispatch => {
+    return fetch(`${API_URL}/entries/${entry.id}`)
+    .then(response => response.json())
+    .then(entry => dispatch(deleteEntry(entry)))
+    .catch(error => console.log(error));
+  }
+}
+//
 
 export const createEntry = entry => { // this is an action creator
   return dispatch => {

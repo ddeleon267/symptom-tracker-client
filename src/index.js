@@ -11,6 +11,10 @@ import { Provider } from 'react-redux';
 // Why so? We saw that in Redux the store manages everything. React must talk to the store
 // for accessing the state and dispatching actions.
 // Provider wraps up your entire React application. Moreover it gets the store as a prop.
+
+// Provider ensures that our entire React application can potentially access data from the store.
+// Then connect(), allows us to specify which data we are listening to (through mapStateToProps),
+// and which component we are providing the data. 
 import './index.css';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';

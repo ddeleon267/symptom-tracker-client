@@ -65,6 +65,7 @@ class EntryForm extends Component {
 //connects part of the redux state (entryFormData) to the props of react component (entryform)
 //so it has it available as props
 const mapStateToProps = state => {
+  // can place a debugger here
   return {
     entryFormData: state.entryFormData
   }
@@ -87,3 +88,11 @@ export default connect(mapStateToProps, {
 // What does mapDispatchToProps do in react-redux? mapDispatchToProps does something similar, but
 // for actions. mapDispatchToProps connects Redux actions to React props. This way a connected React
 // component will be able to dispatch actions.
+
+//mapStateToProps() method is executed with each change to the store's state.
+
+//  whatever function we pass to the connect() function will be called each time the state changes,
+//  and the first argument to that function, whatever it's name, will be the state of the store.
+
+// We also know that connect() takes whatever the return value is of the mapStateToProps() function
+// and passes it to the component that is in those last set of parentheses (in this case, App). Because normally, what we are doing is taking a part of the store's state and porting it to become props of the relevant component, we say that we are taking part of the state, and mapping them as props to the component, thus the name mapStateToProps.

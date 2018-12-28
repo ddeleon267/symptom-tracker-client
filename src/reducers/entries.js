@@ -19,6 +19,9 @@ export default (state = [], action) => {
       console.log(action)
       return action.entries;
 
+    case 'GET_ENTRY_SUCCESS':
+      return action.entry; // no idea if this is gonna work
+
     case 'CREATE_ENTRY_SUCCESS':
       return state.concat(action.entry)
     default:

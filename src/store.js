@@ -9,6 +9,7 @@ import {
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'; // make asynchronous calls to backend
 
+// importing my reducers
 import entries from './reducers/entries'
 import entryFormData from './reducers/entryFormData'
 
