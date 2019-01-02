@@ -20,7 +20,9 @@ class Entries extends Component {
       <div className="EntriesContainer">
         <EntryForm />
         <h3>Entries</h3>
-        { this.props.entries.map(entry => <EntryCard key={entry.id} entry={entry}/>)  }
+        { this.props.entries.map(entry => (
+          <EntryCard key={entry.id} entry={entry}/>)
+        )}
       </div>
     )
   }

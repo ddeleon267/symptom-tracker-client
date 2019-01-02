@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EntryCard = ({ entry }) => (
   <div key={entry.id} className="EntryCard">

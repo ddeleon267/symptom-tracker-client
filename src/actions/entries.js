@@ -29,9 +29,8 @@ const setEntry = entry => {
 // ***** trying things!
 const removeEntry = entry => {
   return {
-    type: 'DELETE_ENTRY_SUCCESS'
-    // ,
-    // entry
+    type: 'DELETE_ENTRY_SUCCESS',
+    entry
   }
 }
 //
@@ -79,6 +78,8 @@ export const deleteEntry = (entry) => {
 }
 //
 
+//We prefer wrapping our actions in a function, because oftentimes our actions have some parts
+// that will need to change, and a function comes in handy.
 export const createEntry = entry => { // this is an action creator
   return dispatch => {
     return fetch(`${API_URL}/entries`, {
