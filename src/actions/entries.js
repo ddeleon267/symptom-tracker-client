@@ -18,19 +18,19 @@ const setEntries = entries => { // this is an action creator
 }
 
 // ***** trying things!
-const setEntry = entry => {
+const setEntry = entry => { //or just entryId ?
   return {
     type: 'GET_ENTRY_SUCCESS',
-    entry
+    entry //or just entryId ?
   }
 }
 //
 
 // ***** trying things!
-const removeEntry = entry => {
+const removeEntry = entry => { //or just entryId ?
   return {
     type: 'DELETE_ENTRY_SUCCESS',
-    entry
+    entry  //or just entryId ?
   }
 }
 //
