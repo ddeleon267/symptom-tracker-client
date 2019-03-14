@@ -1,15 +1,6 @@
-//The second principle of Redux says the only way to change the state is by sending a signal to the
-//store.This signal is an action. “Dispatching an action” is the process of sending out a signal.
-
 import { resetEntryForm } from './entryFormData'; //more actions
-
 const API_URL = process.env.REACT_APP_API_URL;
 
-// Action Creators (functions that actually go to our reducer)
-// Every action needs a type property for describing how the state should change.
-// It is a best pratice to wrap every action within a function. Such function is an action creator.
-// Since strings are prone to typos and duplicates it’s better to have action types declared as constants.
-// This approach helps avoiding errors that will be difficult to debug.
 const setEntries = entries => { // this is an action creator
   return {
     type: 'GET_ENTRIES_SUCCESS',
@@ -42,12 +33,7 @@ const addEntry = entry => { // this is an action creator
   }
 }
 
-// Async Actions
-// Dispatching an action means notifying the store that we want to change the state.
-// To change the state in Redux we need to dispatch an action. To dispatch an action you have
-// to call the dispatch method.
-
-export const getEntries = () => { // this is an action creator
+export const getEntries = () => {
   return dispatch => {
     return fetch(`${API_URL}/entries`)
     .then(response => response.json())
@@ -58,10 +44,11 @@ export const getEntries = () => { // this is an action creator
 
 // ***** trying things!
 export const getEntry = (entry) => {
+  //gets here
   return dispatch => {
     return fetch(`${API_URL}/entries/${entry.id}`)
     .then(response => response.json())
-    .then(entry => dispatch(setEntry(entry)))
+    .then(entry => dispatch(setEntry(entry))) //breaks here
     .catch(error => console.log(error));
   }
 }
@@ -76,11 +63,8 @@ export const deleteEntry = (entry) => {
     .catch(error => console.log(error));
   }
 }
-//
 
-//We prefer wrapping our actions in a function, because oftentimes our actions have some parts
-// that will need to change, and a function comes in handy.
-export const createEntry = entry => { // this is an action creator
+export const createEntry = entry => {
   return dispatch => {
     return fetch(`${API_URL}/entries`, {
       method: 'POST',

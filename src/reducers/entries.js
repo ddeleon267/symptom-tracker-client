@@ -1,11 +1,3 @@
-// reducers produce the state. The state is not something you create by hand.
-// in Redux the state must return entirely from reducers.
-// A reducer is just a Javascript function. A reducer takes two parameters: the
-// current state and an action (more about actions soon).
-// The third principle of Redux says that the state is immutable and cannot change in place.
-// This is why the reducer must be pure. A pure function is one that returns the exact same
-// output for the given input.
-
 export default (state = [], action) => {
   switch(action.type) {
     case 'GET_ENTRIES_SUCCESS':
@@ -13,6 +5,7 @@ export default (state = [], action) => {
       return action.entries;
 
     case 'GET_ENTRY_SUCCESS': // testing
+      debugger
       return action.entry; // no idea if this is gonna work
 
     case "DELETE_ENTRY_SUCCESS":
